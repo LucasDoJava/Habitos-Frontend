@@ -1,0 +1,41 @@
+
+{
+  "name": "habit_completions",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["habitId", "completedAt", "pointsEarned"],
+        "properties": {
+          "habitId": {
+            "bsonType": "string",
+            "description": "ID do hábito concluído"
+          },
+          "completedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data e hora da conclusão"
+          },
+          "pointsEarned": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Pontos ganhos nesta conclusão"
+          },
+          "notes": {
+            "bsonType": "string",
+            "maxLength": 200,
+            "description": "Anotações opcionais"
+          },
+          "streakDay": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Dia da sequência quando foi concluído"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

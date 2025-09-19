@@ -1,0 +1,68 @@
+
+{
+  "name": "user_stats",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["userId", "level", "totalPoints", "currentExp", "expToNextLevel"],
+        "properties": {
+          "userId": {
+            "bsonType": "string",
+            "description": "ID do usuário"
+          },
+          "level": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Nível atual do usuário"
+          },
+          "totalPoints": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Total de pontos acumulados"
+          },
+          "currentExp": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Experiência atual no nível"
+          },
+          "expToNextLevel": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Experiência necessária para próximo nível"
+          },
+          "achievements": {
+            "bsonType": "array",
+            "description": "Lista de conquistas desbloqueadas",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "longestStreak": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Maior sequência global"
+          },
+          "totalHabitsCompleted": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "Total de hábitos concluídos"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
